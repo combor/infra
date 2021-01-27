@@ -1,5 +1,5 @@
 resource "aws_security_group" "allow_ssh" {
-  name_prefix        = "allow_ssh_"
+  name_prefix = "allow_ssh_"
   description = "Allow SSH inbound traffic"
   vpc_id      = aws_vpc.main.id
 
@@ -24,7 +24,7 @@ resource "aws_security_group" "allow_ssh" {
 }
 
 resource "aws_security_group" "allow_tls" {
-  name_prefix        = "allow_tls_"
+  name_prefix = "allow_tls_"
   description = "Allow TLS inbound traffic"
   vpc_id      = aws_vpc.main.id
 

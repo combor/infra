@@ -5,8 +5,8 @@ resource "aws_key_pair" "deployer" {
 
 
 resource "aws_network_interface" "worker" {
-  subnet_id   = aws_subnet.public.id
-  security_groups = [aws_security_group.allow_ssh.id,aws_security_group.allow_tls.id]
+  subnet_id       = aws_subnet.public.id
+  security_groups = [aws_security_group.allow_ssh.id, aws_security_group.allow_tls.id]
 
   tags = {
     Name = "worker"
@@ -14,8 +14,8 @@ resource "aws_network_interface" "worker" {
 }
 
 resource "aws_eip" "worker" {
-  network_interface         = aws_network_interface.worker.id
-  vpc      = true
+  network_interface = aws_network_interface.worker.id
+  vpc               = true
 }
 
 data "ct_config" "worker-ignition" {
@@ -28,7 +28,7 @@ data "template_file" "worker-config" {
   template = file("${path.module}/worker.yaml")
 
   vars = {
-    ssh_authorized_key     = var.ssh_authorized_key
+    ssh_authorized_key = var.ssh_authorized_key
   }
 }
 
@@ -40,8 +40,8 @@ resource "aws_ebs_volume" "worker" {
 resource "aws_instance" "worker" {
   ami           = data.aws_ami.flatcar.id
   instance_type = var.instance_type
-  key_name  = aws_key_pair.deployer.id
-  user_data = data.ct_config.worker-ignition.rendered
+  key_name      = aws_key_pair.deployer.id
+  user_data     = data.ct_config.worker-ignition.rendered
 
   root_block_device {
     volume_type = var.disk_type
