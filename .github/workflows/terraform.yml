@@ -22,6 +22,14 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
+    - name: init
+      uses: hashicorp/terraform-github-actions@master
+      with:
+        tf_actions_version: 0.14.5
+        tf_actions_subcommand: 'init'
+        tf_actions_working_dir: '.'
+        tf_actions_comment: true
+
     - name: validate
       uses: hashicorp/terraform-github-actions@master
       with:
