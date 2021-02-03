@@ -2,7 +2,7 @@ name: terraform
 on:
   push:
     branches:
-      - master
+      - main
 
 jobs:
   terraform-actions:
