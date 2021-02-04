@@ -16,6 +16,20 @@ systemd:
         Type=ext4
         [Install]
         WantedBy=local-fs.target
+    - name: unifi.service
+      enabled: true
+      contents: |
+        [Unit]
+        Description=Unifi controller
+        [Service]
+        ExecStartPre=-/usr/bin/docker kill unifi-controller
+        ExecStartPre=-/usr/bin/docker rm unifi-controller
+        ExecStartPre=/usr/bin/docker pull ghcr.io/linuxserver/unifi-controller
+        ExecStart=/usr/bin/docker run --name unifi-controller -p 8443:443 -e MEM_LIMIT=768M ghcr.io/linuxserver/unifi-controller:version-6.0.45 -v /data
+        ExecStop=/usr/bin/docker stop unify-controller
+        [Install]
+        WantedBy=multi-user.target
+
 storage:
   files:
     - path: /etc/sysctl.d/max-user-watches.conf
