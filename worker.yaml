@@ -25,7 +25,7 @@ systemd:
         ExecStartPre=-/usr/bin/docker kill unifi-controller
         ExecStartPre=-/usr/bin/docker rm unifi-controller
         ExecStartPre=/usr/bin/docker pull ghcr.io/linuxserver/unifi-controller
-        ExecStart=/usr/bin/docker run --name unifi-controller -v /data:/config -p 8443:443 -e MEM_LIMIT=768M ghcr.io/linuxserver/unifi-controller:version-6.0.45
+        ExecStart=/usr/bin/docker run --name unifi-controller -v /data:/config -p 443:8443 -e MEM_LIMIT=768M ghcr.io/linuxserver/unifi-controller:version-6.0.45
         ExecStop=/usr/bin/docker stop unify-controller
         [Install]
         WantedBy=multi-user.target
