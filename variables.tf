@@ -7,7 +7,7 @@ variable "name" {
 variable "instance_type" {
   type        = string
   description = "EC2 instance type"
-  default     = "t4g.micro"
+  default     = "t3.micro"
 }
 
 variable "os_image" {
