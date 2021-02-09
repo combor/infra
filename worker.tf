@@ -28,7 +28,14 @@ data "template_file" "worker-config" {
   template = file("${path.module}/worker.yaml")
 
   vars = {
-    ssh_authorized_key = var.ssh_authorized_key
+    ssh_authorized_key            = var.ssh_authorized_key
+    traefic_aws_access_key_id     = aws_iam_access_key.traefic.id
+    traefic_aws_secret_access_key = aws_iam_access_key.traefic.secret
+    traefic_hosted_zone_id        = aws_route53_zone.kombor-ski.id
+    traefic_version               = var.traefic_version
+    unifi_version                 = var.unifi_version
+    acme_email                    = var.acme_email
+    aws_region                    = var.aws_region
   }
 }
 

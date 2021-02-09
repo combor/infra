@@ -75,3 +75,26 @@ variable "worker_count" {
   description = "Number of instances"
   default     = 1
 }
+
+variable "aws_region" {
+  type        = string
+  description = "AWS region"
+  default     = "eu-west-2"
+}
+
+variable "traefic_version" {
+  type        = string
+  description = "Traefic version"
+  default     = "v2.4"
+}
+
+variable "unifi_version" {
+  type        = string
+  description = "UNIFI version"
+  default     = "amd64-version-6.0.45"
+}
+
+variable "acme_email" {
+  type        = string
+  description = "ACME email"
+}
