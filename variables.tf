@@ -30,13 +30,13 @@ variable "disk_size" {
 variable "disk_type" {
   type        = string
   description = "Type of the EBS volume (e.g. standard, gp2, io1)"
-  default     = "gp2"
+  default     = "gp3"
 }
 
 variable "disk_iops" {
   type        = number
   description = "IOPS of the EBS volume (e.g. 100)"
-  default     = 0
+  default     = 3000
 }
 
 variable "worker_price" {
@@ -82,9 +82,9 @@ variable "aws_region" {
   default     = "eu-west-2"
 }
 
-variable "traefic_version" {
+variable "traefik_version" {
   type        = string
-  description = "Traefic version"
+  description = "Traefik version"
   default     = "v2.4"
 }
 

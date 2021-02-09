@@ -1,5 +1,5 @@
-resource "aws_iam_user" "traefic" {
-  name = "traefic"
+resource "aws_iam_user" "traefik" {
+  name = "traefik"
   path = "/robots/"
 
   tags = {
@@ -7,13 +7,13 @@ resource "aws_iam_user" "traefic" {
   }
 }
 
-resource "aws_iam_access_key" "traefic" {
-  user = aws_iam_user.traefic.name
+resource "aws_iam_access_key" "traefik" {
+  user = aws_iam_user.traefik.name
 }
 
-resource "aws_iam_user_policy" "traefic" {
-  name = "traefic"
-  user = aws_iam_user.traefic.name
+resource "aws_iam_user_policy" "traefik" {
+  name = "traefik"
+  user = aws_iam_user.traefik.name
 
   policy = <<EOF
 {

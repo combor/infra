@@ -24,19 +24,19 @@ systemd:
         [Service]
         ExecStartPre=-/usr/bin/docker kill traefik
         ExecStartPre=-/usr/bin/docker rm traefik
-        ExecStartPre=/usr/bin/docker pull traefik:${traefic_version}
+        ExecStartPre=/usr/bin/docker pull traefik:${traefik_version}
         ExecStart=/usr/bin/docker run \
           --name traefik \
           -v /data/letsencrypt:/letsencrypt \
           -v /var/run/docker.sock:/var/run/docker.sock:ro \
           -p 80:80 \
           -p 443:443 \
-          -e AWS_ACCESS_KEY_ID=${traefic_aws_access_key_id} \
-          -e AWS_SECRET_ACCESS_KEY=${traefic_aws_secret_access_key} \
-          -e AWS_HOSTED_ZONE_ID=${traefic_hosted_zone_id} \
+          -e AWS_ACCESS_KEY_ID=${traefik_aws_access_key_id} \
+          -e AWS_SECRET_ACCESS_KEY=${traefik_aws_secret_access_key} \
+          -e AWS_HOSTED_ZONE_ID=${traefik_hosted_zone_id} \
           -e AWS_REGION=${aws_region} \
           -e MEM_LIMIT=768M \
-          traefik:${traefic_version} \
+          traefik:${traefik_version} \
           --providers.docker=true \
           --providers.docker.exposedbydefault=false \
           --entrypoints.http.address=:80 \
