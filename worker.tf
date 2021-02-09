@@ -42,6 +42,9 @@ data "template_file" "worker-config" {
 resource "aws_ebs_volume" "worker" {
   availability_zone = data.aws_availability_zones.all.names[0]
   size              = 20
+  type              = var.disk_type
+  iops              = var.disk_iops
+  encrypted         = true
 }
 
 resource "aws_instance" "worker" {
