@@ -7,13 +7,13 @@ variable "name" {
 variable "instance_type" {
   type        = string
   description = "EC2 instance type"
-  default     = "t3.micro"
+  default     = "t4g.small"
 }
 
 variable "os_image" {
   type        = string
   description = "AMI channel for a Container Linux derivative (flatcar-stable, flatcar-beta, flatcar-alpha, flatcar-edge)"
-  default     = "flatcar-stable"
+  default     = "flatcar-alpha"
 
   validation {
     condition     = contains(["flatcar-stable", "flatcar-beta", "flatcar-alpha", "flatcar-edge"], var.os_image)
@@ -47,11 +47,6 @@ variable "worker_price" {
 
 # configuration
 
-variable "ssh_authorized_key" {
-  type        = string
-  description = "SSH public key for user 'core'"
-}
-
 variable "host_cidr" {
   type        = string
   description = "CIDR IPv4 range"
@@ -80,21 +75,4 @@ variable "aws_region" {
   type        = string
   description = "AWS region"
   default     = "eu-west-2"
-}
-
-variable "traefik_version" {
-  type        = string
-  description = "Traefik version"
-  default     = "v2.4"
-}
-
-variable "unifi_version" {
-  type        = string
-  description = "UNIFI version"
-  default     = "amd64-version-6.0.45"
-}
-
-variable "acme_email" {
-  type        = string
-  description = "ACME email"
 }

@@ -7,5 +7,5 @@ resource "aws_route53_record" "unifi" {
   name    = "unifi.kombor.ski"
   type    = "A"
   ttl     = "3600"
-  records = [aws_eip.worker.public_ip]
+  records = ["192.168.1.133"]
 }
