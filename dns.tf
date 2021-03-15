@@ -7,5 +7,5 @@ resource "aws_route53_record" "unifi" {
   name    = "unifi.kombor.ski"
   type    = "A"
   ttl     = "3600"
-  records = ["192.168.1.133"]
+  records = ["172.31.255.2"]
 }
