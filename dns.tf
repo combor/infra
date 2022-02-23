@@ -17,3 +17,11 @@ resource "aws_route53_record" "portal" {
   ttl     = "3600"
   records = ["172.31.255.2"]
 }
+
+resource "aws_route53_record" "caa" {
+  zone_id = aws_route53_zone.kombor-ski.zone_id
+  name    = "kombor.ski"
+  type    = "CAA"
+  ttl     = "3600"
+  records = ["0 issue \"letsencrypt.org\""]
+}
