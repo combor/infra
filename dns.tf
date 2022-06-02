@@ -12,7 +12,7 @@ resource "aws_route53_record" "unifi" {
 
 resource "aws_route53_record" "portal" {
   zone_id = aws_route53_zone.kombor-ski.zone_id
-  name    = "portal.kombor.ski"
+  name    = "pihole.kombor.ski"
   type    = "A"
   ttl     = "3600"
   records = ["172.31.255.2"]
