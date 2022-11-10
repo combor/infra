@@ -31,7 +31,15 @@ resource "aws_route53_record" "proton_verification" {
   name    = "kombor.ski"
   type    = "TXT"
   ttl     = "3600"
-  records = ["protonmail-verification=3ab66f95a1d68e13eb6e4cb285c8075bccd998db", "v=spf1 include:_spf.protonmail.ch mx ~all", "v=DMARC1; p=none"]
+  records = ["protonmail-verification=3ab66f95a1d68e13eb6e4cb285c8075bccd998db", "v=spf1 include:_spf.protonmail.ch mx ~all", "v=DMARC1; p=quarantine"]
+}
+
+resource "aws_route53_record" "dmarc" {
+  zone_id = aws_route53_zone.kombor-ski.zone_id
+  name    = "_dmarc.kombor.ski"
+  type    = "TXT"
+  ttl     = "3600"
+  records = ["v=DMARC1; p=quarantine"]
 }
 
 resource "aws_route53_record" "proton_dkim" {
