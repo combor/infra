@@ -84,7 +84,7 @@ resource "aws_route53_record" "external" {
 
 resource "aws_route53_record" "overseerr" {
   zone_id = aws_route53_zone.kombor-ski.zone_id
-  name    = "overseer.kombor.ski"
+  name    = "overseerr.kombor.ski"
   type    = "CNAME"
   ttl     = "3600"
   records = ["host86-155-183-84.range86-155.btcentralplus.com"]
