@@ -18,6 +18,14 @@ resource "aws_route53_record" "portal" {
   records = ["172.31.255.2"]
 }
 
+resource "aws_route53_record" "portal" {
+  zone_id = aws_route53_zone.kombor-ski.zone_id
+  name    = "overseerr.kombor.ski"
+  type    = "A"
+  ttl     = "3600"
+  records = ["172.31.255.2"]
+}
+
 resource "aws_route53_record" "caa" {
   zone_id = aws_route53_zone.kombor-ski.zone_id
   name    = "kombor.ski"
