@@ -18,7 +18,7 @@ resource "aws_route53_record" "portal" {
   records = ["172.31.255.2"]
 }
 
-resource "aws_route53_record" "portal" {
+resource "aws_route53_record" "overseerr" {
   zone_id = aws_route53_zone.kombor-ski.zone_id
   name    = "overseerr.kombor.ski"
   type    = "A"
