@@ -18,14 +18,6 @@ resource "aws_route53_record" "portal" {
   records = ["172.31.255.2"]
 }
 
-resource "aws_route53_record" "overseerr" {
-  zone_id = aws_route53_zone.kombor-ski.zone_id
-  name    = "overseerr.kombor.ski"
-  type    = "A"
-  ttl     = "3600"
-  records = ["172.31.255.2"]
-}
-
 resource "aws_route53_record" "caa" {
   zone_id = aws_route53_zone.kombor-ski.zone_id
   name    = "kombor.ski"
@@ -85,6 +77,14 @@ resource "aws_route53_record" "proton_mx" {
 resource "aws_route53_record" "external" {
   zone_id = aws_route53_zone.kombor-ski.zone_id
   name    = "plex.kombor.ski"
+  type    = "CNAME"
+  ttl     = "3600"
+  records = ["host86-155-183-84.range86-155.btcentralplus.com"]
+}
+
+resource "aws_route53_record" "external" {
+  zone_id = aws_route53_zone.kombor-ski.zone_id
+  name    = "overseer.kombor.ski"
   type    = "CNAME"
   ttl     = "3600"
   records = ["host86-155-183-84.range86-155.btcentralplus.com"]
