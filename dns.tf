@@ -79,7 +79,7 @@ resource "aws_route53_record" "external" {
   name    = "plex.kombor.ski"
   type    = "CNAME"
   ttl     = "3600"
-  records = ["host86-155-183-84.range86-155.btcentralplus.com"]
+  records = ["host86-191-129-103.range86-191.btcentralplus.com"]
 }
 
 resource "aws_route53_record" "overseerr" {
@@ -87,5 +87,5 @@ resource "aws_route53_record" "overseerr" {
   name    = "overseerr.kombor.ski"
   type    = "CNAME"
   ttl     = "3600"
-  records = ["host86-155-183-84.range86-155.btcentralplus.com"]
+  records = ["host86-191-129-103.range86-191.btcentralplus.com"]
 }
