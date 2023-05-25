@@ -5,17 +5,17 @@ resource "aws_route53_zone" "kombor-ski" {
 resource "aws_route53_record" "unifi" {
   zone_id = aws_route53_zone.kombor-ski.zone_id
   name    = "unifi.kombor.ski"
-  type    = "A"
+  type    = "CNAME"
   ttl     = "3600"
-  records = ["172.31.255.2"]
+  records = ["cieplazupa.dynamic-dns.net"]
 }
 
 resource "aws_route53_record" "portal" {
   zone_id = aws_route53_zone.kombor-ski.zone_id
   name    = "pihole.kombor.ski"
-  type    = "A"
+  type    = "CNAME"
   ttl     = "3600"
-  records = ["172.31.255.2"]
+  records = ["cieplazupa.dynamic-dns.net"]
 }
 
 resource "aws_route53_record" "caa" {
@@ -79,7 +79,7 @@ resource "aws_route53_record" "external" {
   name    = "plex.kombor.ski"
   type    = "CNAME"
   ttl     = "3600"
-  records = ["host86-191-129-103.range86-191.btcentralplus.com"]
+  records = ["cieplazupa.dynamic-dns.net"]
 }
 
 resource "aws_route53_record" "overseerr" {
@@ -87,5 +87,5 @@ resource "aws_route53_record" "overseerr" {
   name    = "overseerr.kombor.ski"
   type    = "CNAME"
   ttl     = "3600"
-  records = ["host86-191-129-103.range86-191.btcentralplus.com"]
+  records = ["cieplazupa.dynamic-dns.net"]
 }
