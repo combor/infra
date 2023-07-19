@@ -13,7 +13,7 @@ resource "aws_iam_access_key" "traefik" {
 
 resource "aws_iam_user_policy" "traefik" {
   name = "traefik"
-       user = aws_iam_user.traefik.name
+  user = aws_iam_user.traefik.name
 
   policy = <<EOF
 {
