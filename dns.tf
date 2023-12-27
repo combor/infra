@@ -90,9 +90,9 @@ resource "aws_route53_record" "overseerr" {
   records = ["ciepla-zupa.chickenkiller.com"]
 }
 
-resource "aws_route53_record" "flood" {
+resource "aws_route53_record" "portal" {
   zone_id = aws_route53_zone.kombor-ski.zone_id
-  name    = "flood.kombor.ski"
+  name    = "portal.kombor.ski"
   type    = "CNAME"
   ttl     = "3600"
   records = ["ciepla-zupa.chickenkiller.com"]
