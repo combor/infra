@@ -97,3 +97,19 @@ resource "aws_route53_record" "portal" {
   ttl     = "3600"
   records = ["172.31.255.3"]
 }
+
+resource "aws_route53_record" "dns" {
+  zone_id = aws_route53_zone.kombor-ski.zone_id
+  name    = "dns.kombor.ski"
+  type    = "A"
+  ttl     = "3600"
+  records = ["172.31.255.3"]
+}
+
+resource "aws_route53_record" "adguard" {
+  zone_id = aws_route53_zone.kombor-ski.zone_id
+  name    = "adguard.kombor.ski"
+  type    = "A"
+  ttl     = "3600"
+  records = ["172.31.255.3"]
+}
