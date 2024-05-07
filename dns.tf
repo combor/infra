@@ -117,7 +117,7 @@ resource "aws_route53_record" "adguard" {
 resource "aws_route53_record" "photos" {
   zone_id = aws_route53_zone.kombor-ski.zone_id
   name    = "photos.kombor.ski"
-  type    = "A"
+  type    = "CNAME"
   ttl     = "3600"
-  records = ["172.31.255.3"]
+  records = ["ciepla-zupa.chickenkiller.com"]
 }
