@@ -82,9 +82,9 @@ resource "aws_route53_record" "overseerr" {
   records = ["ciepla-zupa.chickenkiller.com"]
 }
 
-resource "aws_route53_record" "dns" {
+resource "aws_route53_record" "server" {
   zone_id = aws_route53_zone.kombor-ski.zone_id
-  name    = "dns.kombor.ski"
+  name    = "server.kombor.ski"
   type    = "A"
   ttl     = "3600"
   records = ["172.31.255.3"]
@@ -95,7 +95,7 @@ resource "aws_route53_record" "sonarr" {
   name    = "sonarr.kombor.ski"
   type    = "CNAME"
   ttl     = "3600"
-  records = ["dns.kombor.ski"]
+  records = ["server.kombor.ski"]
 }
 
 resource "aws_route53_record" "radarr" {
@@ -103,7 +103,7 @@ resource "aws_route53_record" "radarr" {
   name    = "radarr.kombor.ski"
   type    = "CNAME"
   ttl     = "3600"
-  records = ["dns.kombor.ski"]
+  records = ["server.kombor.ski"]
 }
 
 resource "aws_route53_record" "prowlarr" {
@@ -111,7 +111,7 @@ resource "aws_route53_record" "prowlarr" {
   name    = "prowlarr.kombor.ski"
   type    = "CNAME"
   ttl     = "3600"
-  records = ["dns.kombor.ski"]
+  records = ["server.kombor.ski"]
 }
 
 resource "aws_route53_record" "deluge" {
@@ -119,15 +119,15 @@ resource "aws_route53_record" "deluge" {
   name    = "deluge.kombor.ski"
   type    = "CNAME"
   ttl     = "3600"
-  records = ["dns.kombor.ski"]
+  records = ["server.kombor.ski"]
 }
 
 resource "aws_route53_record" "adguard" {
   zone_id = aws_route53_zone.kombor-ski.zone_id
   name    = "adguard.kombor.ski"
-  type    = "A"
+  type    = "CNAME"
   ttl     = "3600"
-  records = ["172.31.255.3"]
+  records = ["server.kombor.ski"]
 }
 
 resource "aws_route53_record" "photos" {
@@ -136,4 +136,12 @@ resource "aws_route53_record" "photos" {
   type    = "CNAME"
   ttl     = "3600"
   records = ["ciepla-zupa.chickenkiller.com"]
+}
+
+resource "aws_route53_record" "lidarr" {
+  zone_id = aws_route53_zone.kombor-ski.zone_id
+  name    = "lidarr.kombor.ski"
+  type    = "CNAME"
+  ttl     = "3600"
+  records = ["server.kombor.ski"]
 }
