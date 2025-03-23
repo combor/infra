@@ -7,7 +7,7 @@ resource "aws_route53_record" "unifi" {
   name    = "unifi.kombor.ski"
   type    = "CNAME"
   ttl     = "3600"
-  records = ["ciepla-zupa.chickenkiller.com"]
+  records = ["server.kombor.ski"]
 }
 
 resource "aws_route53_record" "caa" {
