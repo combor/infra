@@ -35,7 +35,7 @@ resource "aws_iam_user_policy" "traefik" {
        {
            "Sid": "",
            "Effect": "Allow",
-           "Action": "route53:ListHostedZonesByName",
+           "Action": [ "route53:ListHostedZonesByName", "route53:ListHostedZones" ],
            "Resource": "*"
        }
    ]
