@@ -141,7 +141,7 @@ resource "aws_route53_record" "photos" {
 resource "aws_route53_record" "lidarr" {
   zone_id = aws_route53_zone.kombor-ski.zone_id
   name    = "lidarr.kombor.ski"
-  type    = "CNAME"
+  type    = "A"
   ttl     = "3600"
-  records = ["server.kombor.ski"]
+  records = ["172.31.255.3"]
 }
