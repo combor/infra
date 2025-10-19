@@ -90,13 +90,13 @@ resource "aws_route53_record" "server" {
   records = ["172.31.255.3"]
 }
 
-resource "aws_route53_record" "sonarr" {
-  zone_id = aws_route53_zone.kombor-ski.zone_id
-  name    = "sonarr.kombor.ski"
-  type    = "CNAME"
-  ttl     = "3600"
-  records = ["server.kombor.ski"]
-}
+#resource "aws_route53_record" "sonarr" {
+#  zone_id = aws_route53_zone.kombor-ski.zone_id
+#  name    = "sonarr.kombor.ski"
+#  type    = "CNAME"
+#  ttl     = "3600"
+#  records = ["server.kombor.ski"]
+#}
 
 resource "aws_route53_record" "radarr" {
   zone_id = aws_route53_zone.kombor-ski.zone_id
@@ -106,13 +106,13 @@ resource "aws_route53_record" "radarr" {
   records = ["server.kombor.ski"]
 }
 
-resource "aws_route53_record" "prowlarr" {
-  zone_id = aws_route53_zone.kombor-ski.zone_id
-  name    = "prowlarr.kombor.ski"
-  type    = "CNAME"
-  ttl     = "3600"
-  records = ["server.kombor.ski"]
-}
+#resource "aws_route53_record" "prowlarr" {
+#  zone_id = aws_route53_zone.kombor-ski.zone_id
+#  name    = "prowlarr.kombor.ski"
+#  type    = "CNAME"
+#  ttl     = "3600"
+#  records = ["server.kombor.ski"]
+#}
 
 resource "aws_route53_record" "deluge" {
   zone_id = aws_route53_zone.kombor-ski.zone_id
