@@ -30,7 +30,7 @@ Flat Terraform layout, no modules or workspaces — all resources in root:
 
 ## Key Details
 
-- Terraform version: 1.13.4+ (pinned in CI)
+- Terraform version: 1.15.8 (pinned in CI)
 - AWS provider version pinned via `.terraform.lock.hcl` (committed)
 - Secrets (AWS creds, `TF_VAR_SSH_AUTHORIZED_KEY`, `TF_VAR_ACME_EMAIL`) are in GitHub Actions secrets, never in code
 - Dependabot updates Terraform providers and GitHub Actions daily
