@@ -13,7 +13,7 @@ resource "aws_route53_record" "server" {
   name    = "server.kombor.ski"
   type    = "A"
   ttl     = 3600
-  records = ["172.31.255.3"]
+  records = ["192.168.0.10"]
 }
 
 resource "aws_route53_record" "lidarr" {
