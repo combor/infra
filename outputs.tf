@@ -9,9 +9,6 @@ output "desec_nameservers" {
   value       = data.desec_rrset.nameservers.rdata
 }
 
-# Publish these at the registrar ONLY after `dig @b0.nic.ski kombor.ski NS` shows the
-# deSEC nameservers and the 3600s delegation TTL has elapsed. Publishing a DS while
-# resolvers still reach Route53 (an unsigned zone) is a domain-wide SERVFAIL.
 output "dnssec_ds_records" {
   description = "DS records for DNSSEC delegation, to publish at the registrar."
   value       = flatten([for k in desec_domain.kombor_ski.keys : k.ds if k.managed])

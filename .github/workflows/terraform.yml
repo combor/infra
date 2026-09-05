@@ -34,7 +34,6 @@ jobs:
     - name: plan
       run: terraform plan
 
-    # Pull requests stop at plan. Only a push to main applies.
     - name: apply
       if: github.ref == 'refs/heads/main' && github.event_name == 'push'
       run: terraform apply -auto-approve

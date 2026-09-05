@@ -1,13 +1,3 @@
-# deSEC copy of the kombor.ski zone. Route53 (dns.tf) stays authoritative until the
-# nameservers are switched at the registrar; this zone is built and verified first.
-#
-# Record data differs from the AWS provider in three ways:
-#   - `rdata` instead of `records`, and `subname` is a bare label ("@" for the apex)
-#   - CNAME and MX targets need a trailing dot
-#   - TXT and CAA values need literal quote characters inside the string
-#
-# The `local.*` sets are defined in dns.tf and shared across the module.
-
 resource "desec_domain" "kombor_ski" {
   name = "kombor.ski"
 }
@@ -54,9 +44,6 @@ resource "desec_rrset" "caa" {
   rdata   = ["0 issue \"letsencrypt.org\""]
 }
 
-# The Route53 copy of this record also carries a "v=DMARC1; p=quarantine" string at the
-# apex. DMARC is only ever read from _dmarc.<domain>, so it is dropped here rather than
-# carried over. The real DMARC record below is unchanged.
 resource "desec_rrset" "proton_verification" {
   domain  = desec_domain.kombor_ski.name
   subname = "@"
