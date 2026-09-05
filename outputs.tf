@@ -1,9 +1,3 @@
-data "desec_rrset" "nameservers" {
-  domain  = desec_domain.kombor_ski.name
-  subname = "@"
-  type    = "NS"
-}
-
 output "desec_nameservers" {
   description = "Nameservers to set at the registrar when cutting over from Route53."
   value       = data.desec_rrset.nameservers.rdata
