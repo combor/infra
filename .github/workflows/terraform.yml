@@ -3,6 +3,7 @@ on:
   push:
     branches:
       - main
+  pull_request:
 
 jobs:
   terraform-actions:
@@ -13,6 +14,7 @@ jobs:
       AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
       TF_VAR_ssh_authorized_key: ${{ secrets.TF_VAR_SSH_AUTHORIZED_KEY }}
       TF_VAR_acme_email: ${{ secrets.TF_VAR_ACME_EMAIL }}
+      TF_VAR_desec_api_token: ${{ secrets.TF_VAR_DESEC_API_TOKEN }}
     steps:
     - name: Checkout Repo
       uses: actions/checkout@v7
@@ -34,5 +36,7 @@ jobs:
     - name: plan
       run: terraform plan
 
+    # Pull requests stop at plan. Only a push to main applies.
     - name: apply
+      if: github.ref == 'refs/heads/main' && github.event_name == 'push'
       run: terraform apply -auto-approve
