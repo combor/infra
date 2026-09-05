@@ -1,0 +1,15 @@
+output "desec_nameservers" {
+  description = "Nameservers to set at the registrar when cutting over from Route53."
+  value       = data.desec_rrset.nameservers.rdata
+}
+
+output "dnssec_ds_records" {
+  description = "DS records for DNSSEC delegation, to publish at the registrar."
+  value       = flatten([for k in desec_domain.kombor_ski.keys : k.ds if k.managed])
+}
+
+output "traefik_token" {
+  description = "deSEC token for Traefik's DNS-01 challenge. Read with `terraform output -raw traefik_token`."
+  value       = desec_token.traefik.token
+  sensitive   = true
+}
